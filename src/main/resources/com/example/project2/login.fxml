@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox alignment="CENTER" prefHeight="600.0" prefWidth="1000.0" spacing="20.0" style="-fx-background-color: #989;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project2.Controller.LoginController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+    <Label prefHeight="113.0" prefWidth="1042.0" text="Вход клиента">
+        <font>
+            <Font size="72.0" />
+        </font>
+    </Label>
+
+    <Label fx:id="welcomeText" />
+    <AnchorPane prefHeight="500.0" prefWidth="1000.0" style="-fx-background-color: #fafafa;">
+        <children>
+            <TextField fx:id="textAddress" layoutX="210.0" layoutY="64.0" prefHeight="26.0" prefWidth="244.0" promptText="address" />
+            <TextField fx:id="textName" layoutX="263.0" layoutY="166.0" promptText="name" />
+            <TextField fx:id="TextPhone" layoutX="236.0" layoutY="262.0" promptText="phone" />
+            <Text layoutX="262.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="адрес" wrappingWidth="159.79220581054688" />
+            <Text layoutX="286.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Введите своё имя" wrappingWidth="127.25399780273438" />
+            <Text layoutX="236.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Введите номер телефона" wrappingWidth="191.24581909179688" />
+            <Button fx:id="buttonLogon" layoutX="250.0" layoutY="319.0" mnemonicParsing="false" onAction="#login" prefHeight="26.0" prefWidth="147.0" text="Войти" />
+            <Button fx:id="buttonBack" layoutX="53.0" layoutY="194.0" mnemonicParsing="false" onAction="#switchToRegistrationBack" prefHeight="26.0" prefWidth="109.0" text="Выйти" />
+        </children>
+    </AnchorPane>
+</VBox>
