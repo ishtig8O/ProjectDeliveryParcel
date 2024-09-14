@@ -1,4 +1,5 @@
 package com.example.project2.Model;
+import com.example.project2.Context;
 import com.example.project2.Controller.TableStaffController;
 import com.example.project2.Table.TableStaffWho;
 import javafx.collections.FXCollections;
@@ -23,7 +24,7 @@ public class TableStaffModel {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             Connection connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:8080/delivery",
+                    Context.getDBName(),
                     "root", "");
 //            preparedStatement = connection.prepareStatement("Select * from Courier where ")
             this.connection = connection;
@@ -84,18 +85,31 @@ public class TableStaffModel {
     }
 
     public void edit(TextField idText, TextField nameText, TextField phoneText) {
-        try {
+//        try {
             String value1 = idText.getText();
             String value2 = nameText.getText();
             String value3 = phoneText.getText();
 
 
-            String sql = "UPDATE `Courier` SET`courier_name`='" + value2 + "',`courier_phone_number`='" + value3 + "' WHERE `courier_id`='" + value1 + "' ";
+//            String sql = "UPDATE `Courier` SET`courier_name`='" + value2 + "',`courier_phone_number`='" + value3 + "' WHERE `courier_id`='" + value1 + "' ";
+            String sql = "UPDATE `Courier` SET`courier_name`=?,`courier_phone_number`=? WHERE `courier_id`=?";
 
-            pst = connection.prepareStatement(sql);
-            pst.execute();
-            tableStaffController.updateTable();
+            try {
+                pst = connection.prepareStatement(sql);
+                pst.setString(1, value2);
+                pst.setString(2, value3);
+                pst.setString(3, value1);
+                pst.executeUpdate();
 
-        }catch (Exception e){}
+                tableStaffController.updateTable();
+            }catch (Exception e){
+                System.out.println(e);
+            }
+
+//            pst = connection.prepareStatement(sql);
+//            pst.execute();
+//            tableStaffController.updateTable();
+
+//        }catch (Exception e){}
     }
 }

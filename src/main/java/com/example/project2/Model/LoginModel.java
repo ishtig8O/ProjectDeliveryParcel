@@ -17,7 +17,7 @@ public class LoginModel {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             Connection connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:8080/delivery",
+                    Context.getDBName(),
                     "root", "");
 //            preparedStatement = connection.prepareStatement("Select * from Courier where ")
             this.connection = connection;
@@ -43,6 +43,7 @@ public class LoginModel {
                 Integer id = rs.getInt("client_id");
                 Context.getInstance().setId(id);
                 Context.getInstance().setIsClient(true);
+                Context.getInstance().setMainPage("menuForClient.fxml");
                 return true;
             }
             else

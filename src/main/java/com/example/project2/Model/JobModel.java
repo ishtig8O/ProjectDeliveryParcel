@@ -4,18 +4,15 @@ import com.example.project2.Context;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Collection;
 
-public class RegistrationModel {
-
+public class JobModel {
+    Collection collection;
     PreparedStatement preparedStatement;
     Connection connection;
 
-    public RegistrationModel() {
+    public JobModel() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
@@ -33,17 +30,18 @@ public class RegistrationModel {
         }
     }
 
-    public void createReg(String name, String address, String phone) {
+    public void movePackage(String center_id, String unique_code) {
         try {
-            //preparedStatement = connection.prepareStatement("INSERT INTO `Client`(`client_name`, `client_phone_number`, `client_address`) VALUES ('"+ name +"','"+phone+"','"+address+"')");
-            preparedStatement = connection.prepareStatement("INSERT INTO `Client`(`client_name`, `client_phone_number`, `client_address`) VALUES (?,?,?)");
-            preparedStatement.setString(1, name);
-            preparedStatement.setString(2, phone);
-            preparedStatement.setString(3, address);
-            preparedStatement.executeUpdate();
+
+            preparedStatement = connection.prepareStatement("UPDATE `Package` SET center_id=? WHERE unique_code=?");
+            preparedStatement.setString(1, center_id);
+            preparedStatement.setString(2, unique_code);
+
+            preparedStatement.execute();
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
+
 }

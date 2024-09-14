@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
+import com.example.project2.Context;
 import com.example.project2.HelloApplication;
 import com.example.project2.Model.TableClientModel;
 import com.example.project2.Table.TableClientWho;
@@ -144,11 +145,11 @@ public class TableClientController {
         }
 
 
-        //idText.setText(client_id.getCellData(index).toString());
+        idText.setText(client_id.getCellData(index).toString());
         nameText.setText(client_name.getCellData(index).toString());
         phoneText.setText(client_phone_number.getCellData(index).toString());
         TextAddress.setText(client_address.getCellData(index).toString());
-        //TextDelivery.setText(delivery_point_id.getCellData(index).toString());
+        TextDelivery.setText(delivery_point_id.getCellData(index).toString());
     }
 
 
@@ -182,6 +183,15 @@ public class TableClientController {
     @FXML
     public void switchToRegistrationBack(ActionEvent event) throws IOException {
         Parent fxmlLoader = FXMLLoader.load(HelloApplication.class.getResource("hello-view.fxml"));
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(fxmlLoader);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    public void switchToMenu(ActionEvent event) throws IOException {
+        Parent fxmlLoader = FXMLLoader.load(HelloApplication.class.getResource(Context.getInstance().getMainPage()));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(fxmlLoader);
         stage.setScene(scene);

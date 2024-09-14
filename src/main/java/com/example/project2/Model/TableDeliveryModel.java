@@ -1,5 +1,6 @@
-package com.example.project2.Table;
+package com.example.project2.Model;
 import com.example.project2.Controller.TableDeliveryController;
+import com.example.project2.Table.TableDeliveryWho;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TextField;
@@ -83,18 +84,32 @@ public class TableDeliveryModel {
     }
 
     public void edit(TextField idText, TextField nameText, TextField dText) {
-        try {
+//        try {
             String value1 = idText.getText();
             String value2 = nameText.getText();
             String value3 = dText.getText();
 
 
-            String sql = "UPDATE `Delivery_Center` SET`center_name`='" + value2 + "',`center_address`='" + value3 + "' WHERE `center_id`='" + value1 + "' ";
+//            String sql = "UPDATE `Delivery_Center` SET`center_name`='" + value2 + "',`center_address`='" + value3 + "' WHERE `center_id`='" + value1 + "' ";
+            String sql = "UPDATE `Delivery_Center` SET`center_name`? ,`center_address`= ? WHERE `center_id`= ?";
 
-            pst = connection.prepareStatement(sql);
-            pst.execute();
-            tableDeliveryController.updateTable();
+            try {
+                pst = connection.prepareStatement(sql);
+                pst.setString(1, value2);
+                pst.setString(2, value3);
+                pst.setString(3, value1);
+                pst.executeUpdate();
 
-        }catch (Exception e){}
+                tableDeliveryController.updateTable();
+            }catch (Exception e){
+                System.out.println(e);
+            }
+
+
+//            pst = connection.prepareStatement(sql);
+//            pst.execute();
+//            tableDeliveryController.updateTable();
+//
+//        }catch (Exception e){}
     }
 }

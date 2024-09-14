@@ -6,8 +6,9 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
+import com.example.project2.Context;
 import com.example.project2.HelloApplication;
-import com.example.project2.Table.TableDeliveryModel;
+import com.example.project2.Model.TableDeliveryModel;
 import com.example.project2.Table.TableDeliveryWho;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -22,7 +23,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
     public class TableDeliveryController {
@@ -64,7 +64,7 @@ import javafx.stage.Stage;
     private TextField nameText;
 
     @FXML
-    private TableView<TableDeliveryWho> tableDelivery;
+    private TableView<TableDeliveryWho> tableStaff;
 
     @FXML
     private Button update;
@@ -133,7 +133,7 @@ import javafx.stage.Stage;
 
     @FXML
     void getUp(javafx.scene.input.MouseEvent mouseEvent) {
-        index = tableDelivery.getSelectionModel().getSelectedIndex();
+        index = tableStaff.getSelectionModel().getSelectedIndex();
         if (index <= -1) {
             return;
         }
@@ -155,7 +155,7 @@ import javafx.stage.Stage;
         listM = tableDeliveryModel.getDate();
 
 
-        tableDelivery.setItems(listM);
+        tableStaff.setItems(listM);
     }
 
     @FXML
@@ -178,6 +178,16 @@ import javafx.stage.Stage;
         stage.setScene(scene);
         stage.show();
     }
+
+        @FXML
+        public void switchToMenu(ActionEvent event) throws IOException {
+            Parent fxmlLoader = FXMLLoader.load(HelloApplication.class.getResource(Context.getInstance().getMainPage()));
+            stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(fxmlLoader);
+            stage.setScene(scene);
+            stage.show();
+        }
+
 
 
     @FXML

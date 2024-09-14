@@ -1,5 +1,6 @@
 package com.example.project2.Model;
 
+import com.example.project2.Context;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
@@ -30,8 +31,10 @@ public class LoginAdminModel {
 //    }
 
     public boolean createLog(String log, String pass) {
-        if (log.equals("a12") && pass.equals("a123"))
+        if (log.equals("a12") && pass.equals("a123")) {
+            Context.getInstance().setMainPage("menuAll.fxml");
             return true;
+        }
         else
             return false;
     }

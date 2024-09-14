@@ -57,6 +57,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
+import com.example.project2.Context;
 import com.example.project2.HelloApplication;
 import com.example.project2.Model.TableStaffModel;
 import com.example.project2.Table.TableStaffWho;
@@ -196,6 +197,15 @@ public class TableStaffController {
     @FXML
     public void switchToRegistrationBack(ActionEvent event) throws IOException {
         Parent fxmlLoader = FXMLLoader.load(HelloApplication.class.getResource("hello-view.fxml"));
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(fxmlLoader);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    public void switchToMenu(ActionEvent event) throws IOException {
+        Parent fxmlLoader = FXMLLoader.load(HelloApplication.class.getResource(Context.getInstance().getMainPage()));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(fxmlLoader);
         stage.setScene(scene);

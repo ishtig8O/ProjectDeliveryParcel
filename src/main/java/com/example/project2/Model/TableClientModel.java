@@ -1,4 +1,5 @@
 package com.example.project2.Model;
+import com.example.project2.Context;
 import com.example.project2.Controller.TableClientController;
 import com.example.project2.Table.TableClientWho;
 import javafx.collections.FXCollections;
@@ -23,7 +24,7 @@ public class TableClientModel {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             Connection connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:8080/delivery",
+                    Context.getDBName(),
                     "root", "");
 //            preparedStatement = connection.prepareStatement("Select * from Courier where ")
             this.connection = connection;
@@ -59,10 +60,18 @@ public class TableClientModel {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                list.add(new TableClientWho(Integer.parseInt(rs.getString("client_id")),rs.getString("client_name"), rs.getString("client_address"), rs.getString("client_phone_number"), Integer.parseInt(rs.getString("client_id"))));
+                list.add(
+                        new TableClientWho(
+                                Integer.parseInt(rs.getString("client_id"))
+                                ,rs.getString("client_name")
+                                ,rs.getString("client_address")
+                                ,rs.getString("client_phone_number")
+                                ,rs.getInt("delivery_point_id")
+                        )
+                );
             }
         }catch (Exception e){
-
+            System.out.println(e);
         }
         return list;
     }
@@ -85,7 +94,7 @@ public class TableClientModel {
     }
 
     public void edit(TextField idText, TextField nameText, TextField phoneText, TextField address, TextField point) {
-        try {
+//        try {
             String value1 = idText.getText();
             String value2 = nameText.getText();
             String value3 = phoneText.getText();
@@ -93,12 +102,30 @@ public class TableClientModel {
             String value5 = point.getText();
 
 
-            String sql = "UPDATE Client SET client_name='" + value2 + "',client_address='" + value4 + "',client_phone_number='" + value3 +"', delivery_point_id=" + value5 +"  WHERE client_id=" + value1 + " ";
+//            String sql = "UPDATE Client SET client_name='" + value2 + "',client_address='" + value4 + "',client_phone_number='" + value3 +"', delivery_point_id=" + value5 +"  WHERE client_id=" + value1 + " ";
 
-            pst = connection.prepareStatement(sql);
-            pst.execute();
-            tableClientController.updateTable();
+            String sql = "UPDATE Client SET client_name=? ,client_address=?, client_phone_number=?, delivery_point_id=? WHERE client_id=?";
 
-        }catch (Exception e){}
+            try {
+                pst = connection.prepareStatement(sql);
+                //pst.setInt(1, Integer.parseInt(idText));
+                pst.setString(1, value2);
+                pst.setString(2, value4);
+                pst.setString(3, value3);
+                pst.setString(4, value5);
+                pst.setString(5, value1);
+                pst.executeUpdate();
+
+                tableClientController.updateTable();
+            }catch (Exception e){
+                System.out.println(e);
+            }
+
+
+//            pst = connection.prepareStatement(sql);
+//            pst.execute();
+//            tableClientController.updateTable();
+//
+//        }catch (Exception e){}
     }
 }

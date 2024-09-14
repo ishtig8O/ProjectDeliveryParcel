@@ -15,7 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
-public class MenuAllController {
+public class MenuForClientController {
 
     @FXML
     private ResourceBundle resources;
@@ -27,41 +27,16 @@ public class MenuAllController {
     private Button buttonBack;
 
     @FXML
-    private Button buttonGoToBase;
-
-    @FXML
-    private Label welcomeText;
-
-    @FXML
-    private Button buttonGoToBaseClient;
-
-    @FXML
     private Button buttonGoToBaseDelivery;
 
     @FXML
     private Button buttonGoToCreateOrder;
 
     @FXML
-    private Button buttonGoToGetOrder;
-
-
-    @FXML
-    private Button buttonGoToView;
+    private Button buttonToViewOrder;
 
     @FXML
-    private Button buttonJob;
-
-
-    @FXML
-    void switchToRegistrationBack(ActionEvent event) {
-
-    }
-
-    @FXML
-    void initialize() {
-
-    }
-
+    private Label welcomeText;
 
     private Stage stage;
     private Scene scene;
@@ -74,23 +49,23 @@ public class MenuAllController {
         stage.show();
     }
 
-    @FXML
-    public void switchToBaseStaff(ActionEvent event) throws IOException {
-        Parent fxmlLoader = FXMLLoader.load(HelloApplication.class.getResource("baseStaff.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(fxmlLoader);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    @FXML
-    public void switchToBaseClient(ActionEvent event) throws IOException {
-        Parent fxmlLoader = FXMLLoader.load(HelloApplication.class.getResource("baseClient.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(fxmlLoader);
-        stage.setScene(scene);
-        stage.show();
-    }
+//    @FXML
+//    public void switchToBaseStaff(ActionEvent event) throws IOException {
+//        Parent fxmlLoader = FXMLLoader.load(HelloApplication.class.getResource("baseStaff.fxml"));
+//        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+//        scene = new Scene(fxmlLoader);
+//        stage.setScene(scene);
+//        stage.show();
+//    }
+//
+//    @FXML
+//    public void switchToBaseClient(ActionEvent event) throws IOException {
+//        Parent fxmlLoader = FXMLLoader.load(HelloApplication.class.getResource("baseClient.fxml"));
+//        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+//        scene = new Scene(fxmlLoader);
+//        stage.setScene(scene);
+//        stage.show();
+//    }
 
     @FXML
     public void switchToBaseDelivery(ActionEvent event) throws IOException {
@@ -110,15 +85,8 @@ public class MenuAllController {
         stage.show();
     }
 
-    public void switchToBaseCreate(ActionEvent event) throws IOException {
-        Parent fxmlLoader = FXMLLoader.load(HelloApplication.class.getResource("BaseCreateOrder.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(fxmlLoader);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public void switchToBaseReceiving(ActionEvent event) throws IOException {
+    @FXML
+    public void switchToRec(ActionEvent event) throws IOException {
         Parent fxmlLoader = FXMLLoader.load(HelloApplication.class.getResource("receivingOrder.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(fxmlLoader);
@@ -126,11 +94,29 @@ public class MenuAllController {
         stage.show();
     }
 
-    public void switchToJob(ActionEvent event) throws IOException {
-        Parent fxmlLoader = FXMLLoader.load(HelloApplication.class.getResource("job.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(fxmlLoader);
-        stage.setScene(scene);
-        stage.show();
-    }
+//    @FXML
+//    void switchToBack(ActionEvent event) {
+//
+//    }
+//
+//    @FXML
+//    void switchToBaseDelivery(ActionEvent event) {
+//
+//    }
+//
+//    @FXML
+//    void switchToBaseTake(ActionEvent event) {
+//
+//    }
+//
+//    @FXML
+//    void initialize() {
+//        assert buttonBack != null : "fx:id=\"buttonBack\" was not injected: check your FXML file 'menuForStaff.fxml'.";
+//        assert buttonGoToBaseDelivery != null : "fx:id=\"buttonGoToBaseDelivery\" was not injected: check your FXML file 'menuForStaff.fxml'.";
+//        assert buttonGoToCreateOrder != null : "fx:id=\"buttonGoToCreateOrder\" was not injected: check your FXML file 'menuForStaff.fxml'.";
+//        assert buttonToViewOrder != null : "fx:id=\"buttonToViewOrder\" was not injected: check your FXML file 'menuForStaff.fxml'.";
+//        assert welcomeText != null : "fx:id=\"welcomeText\" was not injected: check your FXML file 'menuForStaff.fxml'.";
+//
+//    }
+
 }

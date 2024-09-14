@@ -24,7 +24,7 @@
     <AnchorPane prefHeight="500.0" prefWidth="1000.0" style="-fx-background-color: #fafafa;">
         <children>
             <Button fx:id="buttonBack" layoutX="826.0" layoutY="357.0" mnemonicParsing="false" onAction="#switchToRegistrationBack" prefHeight="26.0" prefWidth="109.0" text="Выйти" />
-            <Button fx:id="buttonBack1" layoutX="826.0" layoutY="291.0" mnemonicParsing="false" onAction="#switchToRegistrationBack" prefHeight="26.0" prefWidth="109.0" text="Назад" />
+            <Button fx:id="buttonBack1" layoutX="826.0" layoutY="291.0" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="26.0" prefWidth="109.0" text="Назад" />
             <TableView fx:id="tableStaff" layoutX="155.0" layoutY="14.0" onMouseClicked="#getUp" prefHeight="399.0" prefWidth="658.0">
                 <columns>
                     <TableColumn fx:id="client_id" prefWidth="110.0" text="client_id" />

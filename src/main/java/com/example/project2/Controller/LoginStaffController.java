@@ -78,7 +78,7 @@ public class LoginStaffController {
         String phone = textPhone.getText();
         String name = textName.getText();
         if (loginStaffModel.createLog(name, phone)) {
-            Parent fxmlLoader = FXMLLoader.load(HelloApplication.class.getResource("menuAll.fxml"));
+            Parent fxmlLoader = FXMLLoader.load(HelloApplication.class.getResource("menuForStaff.fxml"));
             stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(fxmlLoader);
             stage.setScene(scene);

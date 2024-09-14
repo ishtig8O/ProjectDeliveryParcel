@@ -17,7 +17,7 @@ public class LoginStaffModel {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             Connection connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:8080/delivery",
+                    Context.getDBName(),
                     "root", "");
 //            preparedStatement = connection.prepareStatement("Select * from Courier where ")
             this.connection = connection;
@@ -42,7 +42,8 @@ public class LoginStaffModel {
             if (rs.next()) {
                 Integer id = rs.getInt("courier_id");
                 Context.getInstance().setId(id);
-                Context.getInstance().setIsClient(true);
+                Context.getInstance().setIsClient(false);
+                Context.getInstance().setMainPage("menuForStaff.fxml");
                 return true;
             }
             else

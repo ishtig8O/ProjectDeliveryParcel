@@ -72,7 +72,7 @@ public class LoginController {
         String phone = TextPhone.getText();
         String name = textName.getText();
         if (loginModel.createLog(name, phone)) {
-            Parent fxmlLoader = FXMLLoader.load(HelloApplication.class.getResource("menuAll.fxml"));
+            Parent fxmlLoader = FXMLLoader.load(HelloApplication.class.getResource("menuForClient.fxml"));
             stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(fxmlLoader);
             stage.setScene(scene);

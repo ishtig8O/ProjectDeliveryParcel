@@ -9,7 +9,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="600.0" prefWidth="1000.0" spacing="20.0" style="-fx-background-color: #989;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project2.Controller.TableStaffController">
+<?import javafx.scene.control.TextField?>
+<VBox alignment="CENTER" prefHeight="600.0" prefWidth="1000.0" spacing="20.0" style="-fx-background-color: #989;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project2.Controller.TableTakeController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
@@ -23,7 +24,7 @@
     <AnchorPane prefHeight="500.0" prefWidth="1000.0" style="-fx-background-color: #fafafa;">
         <children>
             <Button fx:id="buttonBack" layoutX="837.0" layoutY="357.0" mnemonicParsing="false" onAction="#switchToRegistrationBack" prefHeight="26.0" prefWidth="109.0" text="Выйти" />
-            <Button fx:id="buttonBack1" layoutX="837.0" layoutY="291.0" mnemonicParsing="false" onAction="#switchToRegistrationBack" prefHeight="26.0" prefWidth="109.0" text="Назад" />
+            <Button fx:id="buttonBack1" layoutX="837.0" layoutY="291.0" mnemonicParsing="false" onAction="#switchToTakeMenu" prefHeight="26.0" prefWidth="109.0" text="Назад" />
             <TableView fx:id="tableTake" layoutX="155.0" layoutY="14.0" onMouseClicked="#getUp" prefHeight="399.0" prefWidth="672.0">
                 <columns>
                     <TableColumn fx:id="delivery_id" prefWidth="110.0" text="delivery_id" />
@@ -32,7 +33,8 @@
                <TableColumn fx:id="center_address" prefWidth="238.0" text="center_address" />
                 </columns>
             </TableView>
-            <Button fx:id="take" layoutX="36.0" layoutY="169.0" mnemonicParsing="false" onAction="#add_staff" prefHeight="26.0" prefWidth="89.0" text="Взять" />
+            <Button fx:id="take" layoutX="36.0" layoutY="169.0" mnemonicParsing="false" onAction="#take" prefHeight="26.0" prefWidth="89.0" text="Взять" />
+            <TextField fx:id="id" layoutX="36.0" layoutY="100.0" prefHeight="17.0" prefWidth="123.0" promptText="id" />
         </children>
     </AnchorPane>
 </VBox>
