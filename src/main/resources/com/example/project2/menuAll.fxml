@@ -20,7 +20,6 @@
     <Label fx:id="welcomeText" />
     <AnchorPane prefHeight="553.0" prefWidth="960.0" style="-fx-background-color: #fafafa;">
       <children>
-
          <Button fx:id="buttonGoToBase" layoutX="62.0" layoutY="52.0" mnemonicParsing="false" onAction="#switchToBaseStaff" prefHeight="40.0" prefWidth="250.0" text="База сотрудников" />
          <Button fx:id="buttonGoToGetOrder" layoutX="613.0" layoutY="52.0" mnemonicParsing="false" onAction="#switchToBaseTake" prefHeight="40.0" prefWidth="250.0" text="Взять заказ" />
          <Button fx:id="buttonGoToView" layoutX="613.0" layoutY="115.0" mnemonicParsing="false" onAction="#switchToBaseReceiving" prefHeight="40.0" prefWidth="250.0" text="Просмотр заказов" />

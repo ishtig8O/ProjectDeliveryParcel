@@ -84,7 +84,7 @@ public class JobController {
     }
 
     @FXML
-    void login(ActionEvent event) throws IOException {
+    void move(ActionEvent event) throws IOException {
         String center_id = centerId.getText();
         String unique_code = uniqueCode.getText();
 

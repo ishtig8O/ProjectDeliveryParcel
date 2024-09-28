@@ -223,7 +223,7 @@ public class TableStaffController {
 
     @FXML
     void update() {
-        tableStaffModel.edit(idText, nameText, phoneText, centerId);
+        tableStaffModel.edit(centerId, nameText, phoneText, idText);
     }
 
     @FXML

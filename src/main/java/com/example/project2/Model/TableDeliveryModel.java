@@ -80,7 +80,7 @@ public class TableDeliveryModel {
 
 
 //            String sql = "UPDATE `Delivery_Center` SET`center_name`='" + value2 + "',`center_address`='" + value3 + "' WHERE `center_id`='" + value1 + "' ";
-            String sql = "UPDATE `Delivery_Center` SET`center_name`? ,`center_address`= ? WHERE `center_id`= ?";
+            String sql = "UPDATE `Delivery_Center` SET `center_name` = ? ,`center_address`= ? WHERE `center_id`= ?";
 
             try {
                 pst = connection.prepareStatement(sql);

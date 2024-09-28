@@ -23,9 +23,9 @@
       <children>
             <Button fx:id="buttonBack" layoutX="800.0" layoutY="355.0" mnemonicParsing="false" onAction="#switchToRegistrationBack" prefHeight="26.0" prefWidth="109.0" text="Выйти" />
          <Button fx:id="buttonBack1" layoutX="800.0" layoutY="313.0" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="26.0" prefWidth="109.0" text="Назад" />
-         <Button fx:id="move" layoutX="597.0" layoutY="36.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="109.0" text="Переместить" />
-         <TextField fx:id="address" layoutX="178.0" layoutY="36.0" promptText="address_point" />
-         <TextField fx:id="id" layoutX="388.0" layoutY="36.0" promptText="delivery_id" />
+         <Button fx:id="move" layoutX="597.0" layoutY="36.0" mnemonicParsing="false" onAction="#move" prefHeight="26.0" prefWidth="109.0" text="Переместить" />
+         <TextField fx:id="uniqueCode" layoutX="178.0" layoutY="36.0" promptText="unique_code" />
+         <TextField fx:id="centerId" layoutX="388.0" layoutY="36.0" promptText="center_id" />
       </children>
     </AnchorPane>
 </VBox>

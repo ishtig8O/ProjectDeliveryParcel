@@ -85,7 +85,7 @@ public class Registration {
         String phone = TextPhone.getText();
         String name = textName.getText();
         registrationModel.createReg(name, address, phone);
-        Parent fxmlLoader = FXMLLoader.load(HelloApplication.class.getResource("menuForClient.fxml"));
+        Parent fxmlLoader = FXMLLoader.load(HelloApplication.class.getResource("hello-view.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(fxmlLoader);
         stage.setScene(scene);
