@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" prefHeight="600.0" prefWidth="1000.0" spacing="20.0" style="-fx-background-color: #989;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project2.Controller.ChangeDataController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+    <Label prefHeight="41.0" prefWidth="960.0" text="Изменения данных">
+        <font>
+            <Font size="72.0" />
+        </font>
+    </Label>
+
+    <Label fx:id="welcomeText" />
+    <AnchorPane prefHeight="553.0" prefWidth="960.0" style="-fx-background-color: #fafafa;">
+      <children>
+            <Button fx:id="buttonBack" layoutX="374.0" layoutY="343.0" mnemonicParsing="false" onAction="#switchToRegistrationBack" prefHeight="26.0" prefWidth="109.0" text="Выйти" />
+         <Button fx:id="buttonBack1" layoutX="374.0" layoutY="307.0" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="26.0" prefWidth="109.0" text="Назад" />
+         <TextField fx:id="nameF" layoutX="89.0" layoutY="33.0" prefHeight="26.0" prefWidth="310.0" promptText="Имя" />
+         <TextField fx:id="phoneF" layoutX="89.0" layoutY="67.0" prefHeight="26.0" prefWidth="310.0" promptText="Телефон" />
+         <TextField fx:id="addressF" layoutX="89.0" layoutY="102.0" prefHeight="26.0" prefWidth="310.0" promptText="Адрес" />
+         <Button fx:id="ch" layoutX="139.0" layoutY="158.0" mnemonicParsing="false" onAction="#login" prefHeight="26.0" prefWidth="109.0" text="Изменить" />
+      </children>
+    </AnchorPane>
+</VBox>

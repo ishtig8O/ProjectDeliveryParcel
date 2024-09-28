@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" prefHeight="600.0" prefWidth="1000.0" spacing="20.0" style="-fx-background-color: #989;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project2.Controller.MenuForStaffController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+    <Label prefHeight="41.0" prefWidth="960.0" text="Меню для сотрудников">
+        <font>
+            <Font size="72.0" />
+        </font>
+    </Label>
+
+    <Label fx:id="welcomeText" />
+    <AnchorPane prefHeight="553.0" prefWidth="960.0" style="-fx-background-color: #fafafa;">
+      <children>
+            <Button fx:id="buttonBack" layoutX="374.0" layoutY="343.0" mnemonicParsing="false" onAction="#switchToBack" prefHeight="26.0" prefWidth="109.0" text="Выйти" />
+         <Button fx:id="buttonGoToGetOrder" layoutX="179.0" layoutY="119.0" mnemonicParsing="false" onAction="#switchToBaseTake" prefHeight="40.0" prefWidth="499.0" text="Взять заказы" />
+         <Button fx:id="buttonGoToBaseDelivery" layoutX="177.0" layoutY="60.0" mnemonicParsing="false" onAction="#switchToBaseDelivery" prefHeight="40.0" prefWidth="499.0" text="Пункты доставки" />
+          <Button fx:id="buttonToChangeData" layoutX="179.0" layoutY="180.0" mnemonicParsing="false" onAction="#switchToChange" prefHeight="40.0" prefWidth="499.0" text="Изменить данные о себе" />
+      </children>
+    </AnchorPane>
+</VBox>
