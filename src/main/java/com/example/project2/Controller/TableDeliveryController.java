@@ -17,11 +17,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -55,7 +51,7 @@ import javafx.stage.Stage;
     private TableColumn<TableDeliveryWho, String> center_name;
 
     @FXML
-    private Button delite;
+    private Button delete;
 
     @FXML
     private TextField idText;
@@ -64,39 +60,13 @@ import javafx.stage.Stage;
     private TextField nameText;
 
     @FXML
-    private TableView<TableDeliveryWho> tableStaff;
+    private TableView<TableDeliveryWho> tableDelivery;
 
     @FXML
     private Button update;
 
     @FXML
     private Label welcomeText;
-
-//    @FXML
-//    void add_staff(ActionEvent event) {
-//
-//    }
-//
-//    @FXML
-//    void getUp(MouseEvent event) {
-//
-//    }
-//
-//    @FXML
-//    void switchToRegistrationBack(ActionEvent event) {
-//
-//    }
-//
-//    @FXML
-//    void update(ActionEvent event) {
-//
-//    }
-//
-//    @FXML
-//    void initialize() {
-//
-//
-//    }
 
 
     private Stage stage;
@@ -109,13 +79,6 @@ import javafx.stage.Stage;
         this.tableDeliveryModel = new TableDeliveryModel(this);
     }
 
-//    ObservableList<TableStaffModel> list = FXCollections.observableArrayList(
-//            new TableStaffModel(1, "fff1", "1234435"),
-//            new TableStaffModel(2, "fff2", "1234436"),
-//            new TableStaffModel(3, "fff3", "1234437")
-//
-//
-//    );
 
     ObservableList<TableDeliveryWho> listM;
     int index = -1;
@@ -127,13 +90,18 @@ import javafx.stage.Stage;
     public void add_staff() {
         String name = center_name.toString();
         String address = center_address.toString();
-        //if (name.isEmpty() || phone.isEmpty() || )
-        tableDeliveryModel.add_staffi(nameText.getText(), TextAddress.getText());
+        if (Context.getInstance().getIsAdmin()) {
+            tableDeliveryModel.add_staffi(nameText.getText(), TextAddress.getText());
+        }
+        else {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "У Вас нет прав для выполнения этой операции!", ButtonType.CLOSE);
+            alert.show();
+        }
     }
 
     @FXML
     void getUp(javafx.scene.input.MouseEvent mouseEvent) {
-        index = tableStaff.getSelectionModel().getSelectedIndex();
+        index = tableDelivery.getSelectionModel().getSelectedIndex();
         if (index <= -1) {
             return;
         }
@@ -152,22 +120,15 @@ import javafx.stage.Stage;
         center_name.setCellValueFactory(new PropertyValueFactory<TableDeliveryWho, String>("name"));
         center_address.setCellValueFactory(new PropertyValueFactory<TableDeliveryWho, String>("address"));
 
+
         listM = tableDeliveryModel.getDate();
 
 
-        tableStaff.setItems(listM);
+        tableDelivery.setItems(listM);
     }
 
     @FXML
     void initialize() {
-//        courier_id.setCellValueFactory(new PropertyValueFactory<TableStaffWho, Integer>("id_staff"));
-//        courier_name.setCellValueFactory(new PropertyValueFactory<TableStaffWho, String>("name"));
-//        courier_phone_number.setCellValueFactory(new PropertyValueFactory<TableStaffWho, String>("phone"));
-//
-//        listM = tableStaffModel.getDate();
-//
-//
-//        tableStaff.setItems(listM);
         updateTable();
     }
     @FXML
@@ -188,12 +149,28 @@ import javafx.stage.Stage;
             stage.show();
         }
 
-
-
     @FXML
     void update() {
-        tableDeliveryModel.edit(idText, nameText, TextAddress);
+        if (Context.getInstance().getIsAdmin()) {
+            tableDeliveryModel.edit(idText, nameText, TextAddress);
+        }
+        else {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "У Вас нет прав для выполнения этой операции!", ButtonType.CLOSE);
+            alert.show();
+        }
+
     }
+
+        @FXML
+        void delete() {
+            if (Context.getInstance().getIsAdmin()) {
+                tableDeliveryModel.delete(idText);
+            }
+            else {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "У Вас нет прав для выполнения этой операции!", ButtonType.CLOSE);
+                alert.show();
+            }
+        }
 
 
 }

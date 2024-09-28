@@ -79,43 +79,10 @@ private Button find;
         this.receivingOrderModel = new ReceivingOrderModel(this);
     }
 
-//    ObservableList<TableStaffModel> list = FXCollections.observableArrayList(
-//            new TableStaffModel(1, "fff1", "1234435"),
-//            new TableStaffModel(2, "fff2", "1234436"),
-//            new TableStaffModel(3, "fff3", "1234437")
-//
-//
-//    );
-
     ObservableList<TableReceivingWho> listM;
     int index = -1;
     Connection connection = null;
     ResultSet rs = null;
-
-
-
-//    public void add_staff() {
-////        String name = center_name.toString();
-////        String address = center_address.toString();
-//        //if (name.isEmpty() || phone.isEmpty() || )
-//        //tableTakeModel.add_staffi(nameText.getText(), TextAddress.getText(),);
-//    }
-
-//    @FXML
-//    void getUp(javafx.scene.input.MouseEvent mouseEvent) {
-//        index = tableCreate.getSelectionModel().getSelectedIndex();
-//        if (index <= -1) {
-//            return;
-//        }
-//
-//
-//        id.setText(package_id.getCellData(index).toString());
-////        nameText.setText(center_name.getCellData(index).toString());
-////        TextAddress.setText(center_address.getCellData(index).toString());
-//
-//    }
-
-
 
     public void updateTable() {
         delivery_id.setCellValueFactory(new PropertyValueFactory<TableReceivingWho, Integer>("deliveryId"));
@@ -131,14 +98,6 @@ private Button find;
 
     @FXML
     void initialize() {
-//        courier_id.setCellValueFactory(new PropertyValueFactory<TableStaffWho, Integer>("id_staff"));
-//        courier_name.setCellValueFactory(new PropertyValueFactory<TableStaffWho, String>("name"));
-//        courier_phone_number.setCellValueFactory(new PropertyValueFactory<TableStaffWho, String>("phone"));
-//
-//        listM = tableStaffModel.getDate();
-//
-//
-//        tableStaff.setItems(listM);
         updateTable();
     }
     @FXML
@@ -157,43 +116,4 @@ private Button find;
         stage.setScene(scene);
         stage.show();
     }
-
-
-//    @FXML
-//    void create() {
-//        receivingOrderModel.create(id, type, weight0);
-//    }
-
-
-
-//@FXML
-//    void create(ActionEvent event) {
-//
-//            }
-//
-//@FXML
-//    void getUp(MouseEvent event) {
-//
-//            }
-//
-//@FXML
-//    void switchToRegistrationBack(ActionEvent event) {
-//
-//            }
-//
-//@FXML
-//    void initialize() {
-//            assert buttonBack != null : "fx:id=\"buttonBack\" was not injected: check your FXML file 'baseCreateOrder.fxml'.";
-//            assert buttonBack1 != null : "fx:id=\"buttonBack1\" was not injected: check your FXML file 'baseCreateOrder.fxml'.";
-//            assert delivery_id != null : "fx:id=\"delivery_id\" was not injected: check your FXML file 'baseCreateOrder.fxml'.";
-//            assert id != null : "fx:id=\"id\" was not injected: check your FXML file 'baseCreateOrder.fxml'.";
-//            assert tableCreate != null : "fx:id=\"tableCreate\" was not injected: check your FXML file 'baseCreateOrder.fxml'.";
-//            assert type_id != null : "fx:id=\"type_id\" was not injected: check your FXML file 'baseCreateOrder.fxml'.";
-//            assert unique_code != null : "fx:id=\"unique_code\" was not injected: check your FXML file 'baseCreateOrder.fxml'.";
-//            assert weight != null : "fx:id=\"weight\" was not injected: check your FXML file 'baseCreateOrder.fxml'.";
-//            assert welcomeText != null : "fx:id=\"welcomeText\" was not injected: check your FXML file 'baseCreateOrder.fxml'.";
-//            assert find != null : "fx:id=\"аштв\" was not injected: check your FXML file 'baseCreateOrder.fxml'.";
-//
-//            }
-
-            }
+}

@@ -100,10 +100,13 @@ public class TableStaffController {
     private TableColumn<TableStaffWho, String> courier_phone_number;
 
     @FXML
+    private TableColumn<TableStaffWho, Integer> center_id;
+
+    @FXML
     private TableView<TableStaffWho> tableStaff;
 
     @FXML
-    private Button delite;
+    private Button delete;
 
     @FXML
     private Button update;
@@ -119,6 +122,9 @@ public class TableStaffController {
 
     @FXML
     private TextField phoneText;
+
+    @FXML
+    private TextField centerId;
 
 
 
@@ -151,8 +157,9 @@ public class TableStaffController {
     public void add_staff() {
         String name = courier_name.toString();
         String phone = courier_phone_number.toString();
+
         //if (name.isEmpty() || phone.isEmpty() || )
-        tableStaffModel.add_staffi(idText.getText(), nameText.getText(), phoneText.getText());
+        tableStaffModel.add_staffi(idText.getText(), nameText.getText(), phoneText.getText(), centerId.getText());
     }
 
     @FXML
@@ -175,6 +182,7 @@ public class TableStaffController {
         courier_id.setCellValueFactory(new PropertyValueFactory<TableStaffWho, Integer>("id_staff"));
         courier_name.setCellValueFactory(new PropertyValueFactory<TableStaffWho, String>("name"));
         courier_phone_number.setCellValueFactory(new PropertyValueFactory<TableStaffWho, String>("phone"));
+        center_id.setCellValueFactory(new PropertyValueFactory<TableStaffWho, Integer>("center_id"));
 
         listM = tableStaffModel.getDate();
 
@@ -215,7 +223,12 @@ public class TableStaffController {
 
     @FXML
     void update() {
-        tableStaffModel.edit(idText, nameText, phoneText);
+        tableStaffModel.edit(idText, nameText, phoneText, centerId);
+    }
+
+    @FXML
+    void delete() {
+        tableStaffModel.delete(idText);
     }
 
 

@@ -7,6 +7,7 @@ import com.example.project2.Table.TableStaffWho;
 import com.example.project2.Table.TableTakeWho;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 
 import java.sql.*;
@@ -41,18 +42,6 @@ public class TableCreateModel {
         this.tableCreateOrderController = t;
     }
 
-//    public static Connection ConnectDB () {
-//        try {
-//            Class.forName("com.mysql.cj.jdbc.Driver");
-////
-//            Connection connection = DriverManager.getConnection(
-//                    "jdbc:mysql://localhost:8080/deliveryTest",
-//                    "root", "");
-//            return connection;
-//        } catch (Exception e) {
-//            return null;
-//        }
-//    }
 
 
     public  ObservableList<TableCreateWho> getDate() {
@@ -83,31 +72,18 @@ public class TableCreateModel {
         return list;
     }
 
-//    public void add_staffi(String idText, String nameText, String phoneText) {
-//
-//        String sql = "INSERT INTO `Courier`(`courier_id`, `courier_name`, `courier_phone_number`) VALUES (?,?,?)";
-//        try {
-//            pst = connection.prepareStatement(sql);
-//            pst.setInt(1, Integer.parseInt(idText));
-//            pst.setString(2, nameText);
-//            pst.setString(3, phoneText);
-//            pst.executeUpdate();
-//
-//            tableStaffController.updateTable();
-//        }catch (Exception e){
-//            System.out.println(e);
-//        }
-//    }
 
-    public void create(TextField rcpt_id, TextField type_id, TextField weight) {
+    public void create(TextField rcpt_id, TextField type_id, TextField weight) throws SQLException {
         try {
             String value1 = rcpt_id.getText();
             String value2 = Integer.toString(Context.getInstance().getId());
             String value3 = type_id.getText();
             String value4 = weight.getText();
 
+            connection.setAutoCommit(false); // начинаем транзакцию
 
             String sql = "INSERT INTO Delivery (sender_id, recipient_id) VALUES(?,?)";
+
 
             pst = connection.prepareStatement(sql);
             pst.setInt(1, Integer.parseInt(value2));
@@ -123,7 +99,7 @@ public class TableCreateModel {
                 deliveryId = rs0.getInt("ID");
             }
             else
-                throw new Exception("Ошибка");
+                throw new SQLException("Ошибка");
 
 
             String sqlCenter = "SELECT delivery_point_id from Client where client_id = ?";
@@ -136,7 +112,7 @@ public class TableCreateModel {
                 centerId = rs00.getInt("delivery_point_id");
             }
             else
-                throw new Exception("Ошибка");
+                throw new SQLException("Ошибка");
 
 
             String sql1 = "INSERT INTO Package (delivery_id, type_id, weight, center_id, state_id, unique_code) VALUES(?,?,?,?,1,?)";
@@ -159,14 +135,17 @@ public class TableCreateModel {
                 packageId = rs0.getInt("ID");
             }
             else
-                throw new Exception("Ошибка");
+                throw new SQLException("Ошибка");
 
 
+            connection.commit(); // завершаем
 
             tableCreateOrderController.updateTable();
 
-        }catch (Exception e){
+        }catch (SQLException e){
+            connection.rollback(); // откатываем
             System.out.println(e);
         }
+        connection.setAutoCommit(true);
     }
 }

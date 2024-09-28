@@ -39,18 +39,6 @@ public class TableTakeModel {
         this.tableTakeController = t;
     }
 
-//    public static Connection ConnectDB () {
-//        try {
-//            Class.forName("com.mysql.cj.jdbc.Driver");
-////
-//            Connection connection = DriverManager.getConnection(
-//                    "jdbc:mysql://localhost:8080/deliveryTest",
-//                    "root", "");
-//            return connection;
-//        } catch (Exception e) {
-//            return null;
-//        }
-//    }
 
 
     public  ObservableList<TableTakeWho> getDate() {
@@ -78,21 +66,7 @@ public class TableTakeModel {
         return list;
     }
 
-//    public void add_staffi(String idText, String nameText, String phoneText) {
-//
-//        String sql = "INSERT INTO `Courier`(`courier_id`, `courier_name`, `courier_phone_number`) VALUES (?,?,?)";
-//        try {
-//            pst = connection.prepareStatement(sql);
-//            pst.setInt(1, Integer.parseInt(idText));
-//            pst.setString(2, nameText);
-//            pst.setString(3, phoneText);
-//            pst.executeUpdate();
-//
-//            tableStaffController.updateTable();
-//        }catch (Exception e){
-//            System.out.println(e);
-//        }
-//    }
+
 
     public void edit(TextField package_id) {
 //        try {

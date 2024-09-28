@@ -53,11 +53,6 @@ public class MenuAllController {
 
 
     @FXML
-    void switchToRegistrationBack(ActionEvent event) {
-
-    }
-
-    @FXML
     void initialize() {
 
     }

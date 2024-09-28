@@ -1,4 +1,5 @@
 package com.example.project2.Model;
+import com.example.project2.Context;
 import com.example.project2.Controller.TableDeliveryController;
 import com.example.project2.Table.TableDeliveryWho;
 import javafx.collections.FXCollections;
@@ -22,8 +23,7 @@ public class TableDeliveryModel {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            Connection connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:8080/delivery",
+            Connection connection = DriverManager.getConnection(Context.getDBName(),
                     "root", "");
 //            preparedStatement = connection.prepareStatement("Select * from Courier where ")
             this.connection = connection;
@@ -37,18 +37,7 @@ public class TableDeliveryModel {
         this.tableDeliveryController = t;
     }
 
-//    public static Connection ConnectDB () {
-//        try {
-//            Class.forName("com.mysql.cj.jdbc.Driver");
-////
-//            Connection connection = DriverManager.getConnection(
-//                    "jdbc:mysql://localhost:8080/deliveryTest",
-//                    "root", "");
-//            return connection;
-//        } catch (Exception e) {
-//            return null;
-//        }
-//    }
+
 
 
     public  ObservableList<TableDeliveryWho> getDate() {
@@ -84,7 +73,7 @@ public class TableDeliveryModel {
     }
 
     public void edit(TextField idText, TextField nameText, TextField dText) {
-//        try {
+
             String value1 = idText.getText();
             String value2 = nameText.getText();
             String value3 = dText.getText();
@@ -104,12 +93,22 @@ public class TableDeliveryModel {
             }catch (Exception e){
                 System.out.println(e);
             }
+    }
 
+    public void delete(TextField idText) {
+        String value1 = idText.getText();
 
-//            pst = connection.prepareStatement(sql);
-//            pst.execute();
-//            tableDeliveryController.updateTable();
-//
-//        }catch (Exception e){}
+        String sql = "DELETE from `Delivery_Center` WHERE `center_id`=?";
+
+        try {
+            pst = connection.prepareStatement(sql);
+            pst.setString(1, value1);
+
+            pst.executeUpdate();
+
+            tableDeliveryController.updateTable();
+        }catch (Exception e){
+            System.out.println(e);
+        }
     }
 }

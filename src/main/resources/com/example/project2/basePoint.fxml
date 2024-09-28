@@ -24,8 +24,8 @@
     <AnchorPane prefHeight="500.0" prefWidth="1000.0" style="-fx-background-color: #fafafa;">
         <children>
             <Button fx:id="buttonBack" layoutX="826.0" layoutY="357.0" mnemonicParsing="false" onAction="#switchToRegistrationBack" prefHeight="26.0" prefWidth="109.0" text="Выйти" />
-            <Button fx:id="buttonBack1" layoutX="826.0" layoutY="291.0" mnemonicParsing="false" onAction="#switchToRegistrationBack" prefHeight="26.0" prefWidth="109.0" text="Назад" />
-            <TableView fx:id="tableStaff" layoutX="155.0" layoutY="14.0" onMouseClicked="#getUp" prefHeight="399.0" prefWidth="658.0">
+            <Button fx:id="buttonBack1" layoutX="826.0" layoutY="291.0" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="26.0" prefWidth="109.0" text="Назад" />
+            <TableView fx:id="tableDelivery" layoutX="155.0" layoutY="14.0" onMouseClicked="#getUp" prefHeight="399.0" prefWidth="658.0">
                 <columns>
                     <TableColumn fx:id="center_id" prefWidth="110.0" text="center_id" />
                     <TableColumn fx:id="center_name" prefWidth="200.0" text="center_name" />
@@ -34,7 +34,7 @@
             </TableView>
             <Button fx:id="add" layoutX="36.0" layoutY="246.0" mnemonicParsing="false" onAction="#add_staff" prefHeight="26.0" prefWidth="89.0" text="Добавить" />
             <Button fx:id="update" layoutX="36.0" layoutY="304.0" mnemonicParsing="false" onAction="#update" prefHeight="26.0" prefWidth="89.0" text="Обновить" />
-            <Button fx:id="delite" layoutX="36.0" layoutY="357.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="89.0" text="Удалить" />
+            <Button fx:id="delete" layoutX="36.0" layoutY="357.0" mnemonicParsing="false" onAction="#delete" prefHeight="26.0" prefWidth="89.0" text="Удалить" />
             <TextField fx:id="nameText" layoutX="19.0" layoutY="49.0" prefHeight="17.0" prefWidth="123.0" promptText="name" />
             <TextField fx:id="TextAddress" layoutX="19.0" layoutY="84.0" prefHeight="17.0" prefWidth="123.0" promptText="address" />
          <TextField fx:id="idText" layoutX="19.0" layoutY="14.0" prefHeight="17.0" prefWidth="123.0" promptText="id" />

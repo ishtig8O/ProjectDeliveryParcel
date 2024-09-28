@@ -36,22 +36,10 @@ public class MenuForStaffController {
     private Button buttonToViewOrder;
 
     @FXML
-    private Label welcomeText;
+    private Button buttonToChangeData;
 
-//    @FXML
-//    void switchToBack(ActionEvent event) {
-//
-//    }
-//
-//    @FXML
-//    void switchToBaseDelivery(ActionEvent event) {
-//
-//    }
-//
-//    @FXML
-//    void switchToBaseTake(ActionEvent event) {
-//
-//    }
+    @FXML
+    private Label welcomeText;
 
     private Stage stage;
     private Scene scene;
@@ -65,8 +53,8 @@ public class MenuForStaffController {
     }
 
     @FXML
-    public void switchToBaseStaff(ActionEvent event) throws IOException {
-        Parent fxmlLoader = FXMLLoader.load(HelloApplication.class.getResource("baseStaff.fxml"));
+    public void switchToChange(ActionEvent event) throws IOException {
+        Parent fxmlLoader = FXMLLoader.load(HelloApplication.class.getResource("changeDataStaff.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(fxmlLoader);
         stage.setScene(scene);
@@ -99,17 +87,4 @@ public class MenuForStaffController {
         stage.setScene(scene);
         stage.show();
     }
-
-
-
-//    @FXML
-//    void initialize() {
-//        assert buttonBack != null : "fx:id=\"buttonBack\" was not injected: check your FXML file 'menuForStaff.fxml'.";
-//        assert buttonGoToBaseDelivery != null : "fx:id=\"buttonGoToBaseDelivery\" was not injected: check your FXML file 'menuForStaff.fxml'.";
-//        assert buttonGoToGetOrder != null : "fx:id=\"buttonGoToGetOrder\" was not injected: check your FXML file 'menuForStaff.fxml'.";
-//        assert buttonToViewOrder != null : "fx:id=\"buttonToViewOrder\" was not injected: check your FXML file 'menuForStaff.fxml'.";
-//        assert welcomeText != null : "fx:id=\"welcomeText\" was not injected: check your FXML file 'menuForStaff.fxml'.";
-//
-//    }
-
 }

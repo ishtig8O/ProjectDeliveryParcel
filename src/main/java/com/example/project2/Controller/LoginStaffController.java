@@ -40,19 +40,8 @@ public class LoginStaffController {
     @FXML
     private Label welcomeText;
 
-//    @FXML
-//    void login(ActionEvent event) {
-//
-//    }
-
-//    @FXML
-//    void switchToRegistrationBack(ActionEvent event) {
-//
-//    }
-
     @FXML
     void initialize() {
-
     }
 
     private LoginStaffModel loginStaffModel;
@@ -90,15 +79,6 @@ public class LoginStaffController {
             scene = new Scene(fxmlLoader);
             stage.setScene(scene);
             stage.show();
-//            Parent fxmlLoader = FXMLLoader.load(HelloApplication.class.getResource("hello-view.fxml"));
-//            stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-//            scene = new Scene(fxmlLoader);
-//            stage.setScene(scene);
-//            stage.show();
         }
-
-
-
-
     }
 }

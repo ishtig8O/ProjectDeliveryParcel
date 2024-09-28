@@ -120,12 +120,22 @@ public class TableClientModel {
             }catch (Exception e){
                 System.out.println(e);
             }
+    }
 
+    public void delete(TextField idText) {
+        String value1 = idText.getText();
 
-//            pst = connection.prepareStatement(sql);
-//            pst.execute();
-//            tableClientController.updateTable();
-//
-//        }catch (Exception e){}
+        String sql = "DELETE from `Client` WHERE `client_id`=?";
+
+        try {
+            pst = connection.prepareStatement(sql);
+            pst.setString(1, value1);
+
+            pst.executeUpdate();
+
+            tableClientController.updateTable();
+        }catch (Exception e){
+            System.out.println(e);
+        }
     }
 }

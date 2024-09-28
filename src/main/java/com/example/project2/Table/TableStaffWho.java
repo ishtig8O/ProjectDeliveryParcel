@@ -7,12 +7,14 @@ public class TableStaffWho {
     Integer id_staff;
     String name;
     String phone;
+    Integer center_id;
 
 
-    public  TableStaffWho(Integer id_staff, String name, String phone) {
+    public  TableStaffWho(Integer id_staff, String name, String phone, Integer center_id) {
         this.id_staff = id_staff;
         this.name = name;
-         this.phone = phone;
+        this.phone = phone;
+        this.center_id = center_id;
     }
 //
     public int getId_staff() {
@@ -26,6 +28,9 @@ public class TableStaffWho {
     public String getName() {
         return name;
     }
+    public Integer getCenter_id() {
+        return center_id;
+    }
 
     public void setName(String name) {
         this.name = name;
@@ -37,6 +42,9 @@ public class TableStaffWho {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+    public void setCenter_id(int center_id) {
+        this.center_id = center_id;
     }
 
 }

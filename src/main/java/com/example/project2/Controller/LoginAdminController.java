@@ -3,7 +3,6 @@ package com.example.project2.Controller;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import com.example.project2.HelloApplication;
 import com.example.project2.Model.LoginAdminModel;
 import javafx.event.ActionEvent;
@@ -81,16 +80,6 @@ public class LoginAdminController {
             scene = new Scene(fxmlLoader);
             stage.setScene(scene);
             stage.show();
-//            Parent fxmlLoader = FXMLLoader.load(HelloApplication.class.getResource("hello-view.fxml"));
-//            stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-//            scene = new Scene(fxmlLoader);
-//            stage.setScene(scene);
-//            stage.show();
         }
-
-
-
-
     }
-
 }

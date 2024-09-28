@@ -84,12 +84,6 @@ public class LoginController {
             scene = new Scene(fxmlLoader);
             stage.setScene(scene);
             stage.show();
-//            Parent fxmlLoader = FXMLLoader.load(HelloApplication.class.getResource("hello-view.fxml"));
-//            stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-//            scene = new Scene(fxmlLoader);
-//            stage.setScene(scene);
-//            stage.show();
         }
     }
-
 }

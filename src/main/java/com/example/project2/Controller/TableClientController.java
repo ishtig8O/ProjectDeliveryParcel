@@ -56,7 +56,7 @@ public class TableClientController {
     private TableColumn<TableClientWho, String> client_phone_number;
 
     @FXML
-    private Button delite;
+    private Button delete;
 
     @FXML
     private TableColumn<TableClientWho, Integer> delivery_point_id;
@@ -85,23 +85,6 @@ public class TableClientController {
     @FXML
     private TextField TextDelivery;
 
-//    @FXML
-//    void add_staff(ActionEvent event) {
-//
-//    }
-
-
-
-
-
-//    @FXML
-//    void update(ActionEvent event) {
-//
-//    }
-
-
-
-
 
     private Stage stage;
     private Scene scene;
@@ -113,13 +96,6 @@ public class TableClientController {
         this.tableClientModel = new TableClientModel(this);
     }
 
-//    ObservableList<TableStaffModel> list = FXCollections.observableArrayList(
-//            new TableStaffModel(1, "fff1", "1234435"),
-//            new TableStaffModel(2, "fff2", "1234436"),
-//            new TableStaffModel(3, "fff3", "1234437")
-//
-//
-//    );
 
     ObservableList<TableClientWho> listM;
     int index = -1;
@@ -170,14 +146,6 @@ public class TableClientController {
 
     @FXML
     void initialize() {
-//        courier_id.setCellValueFactory(new PropertyValueFactory<TableStaffWho, Integer>("id_staff"));
-//        courier_name.setCellValueFactory(new PropertyValueFactory<TableStaffWho, String>("name"));
-//        courier_phone_number.setCellValueFactory(new PropertyValueFactory<TableStaffWho, String>("phone"));
-//
-//        listM = tableStaffModel.getDate();
-//
-//
-//        tableStaff.setItems(listM);
         updateTable();
     }
     @FXML
@@ -204,6 +172,10 @@ public class TableClientController {
         tableClientModel.edit(idText, nameText, phoneText, TextAddress, TextDelivery);
     }
 
-
-
+    @FXML
+    void delete() {
+        tableClientModel.delete(idText);
+    }
 }
+
+

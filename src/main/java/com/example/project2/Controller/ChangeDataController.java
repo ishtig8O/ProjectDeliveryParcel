@@ -6,7 +6,7 @@ import java.util.ResourceBundle;
 
 import com.example.project2.Context;
 import com.example.project2.HelloApplication;
-import com.example.project2.Model.JobModel;
+import com.example.project2.Model.ChangeDataModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,7 +18,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class JobController {
+public class ChangeDataController {
 
     @FXML
     private ResourceBundle resources;
@@ -27,7 +27,7 @@ public class JobController {
     private URL location;
 
     @FXML
-    private TextField centerId;
+    private TextField addressF;
 
     @FXML
     private Button buttonBack;
@@ -36,30 +36,21 @@ public class JobController {
     private Button buttonBack1;
 
     @FXML
-    private TextField uniqueCode;
+    private Button ch;
 
     @FXML
-    private TextField id;
+    private TextField nameF;
 
     @FXML
-    private TextField address;
-
-    @FXML
-    private Button move;
+    private TextField phoneF;
 
     @FXML
     private Label welcomeText;
 
-    private JobModel jobModel;
+    ChangeDataModel changeDataModel;
 
-
-    public JobController() {
-        this.jobModel = new JobModel();
-    }
-
-
-    @FXML
-    void initialize() {
+    public ChangeDataController() {
+        this.changeDataModel = new ChangeDataModel();
     }
 
     private Stage stage;
@@ -85,9 +76,10 @@ public class JobController {
 
     @FXML
     void login(ActionEvent event) throws IOException {
-        String center_id = centerId.getText();
-        String unique_code = uniqueCode.getText();
+        String name = nameF.getText();
+        String phone = phoneF.getText();
+        String address = addressF.getText();
 
-        jobModel.movePackage(center_id, unique_code);
+        changeDataModel.changeData(name, phone, address);
     }
 }

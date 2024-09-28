@@ -14,6 +14,7 @@ public class Context {
 
     private Integer id;
     private boolean isClient;
+    private boolean isAdmin;
 
     private String mainPage;
 
@@ -24,12 +25,18 @@ public class Context {
     public boolean getIsClient() {
         return isClient;
     }
+    public boolean getIsAdmin() {
+        return isAdmin;
+    }
 
     public void setId(Integer id) {
         this.id = id;
     }
 
     public void setIsClient(boolean isClient) {this.isClient = isClient;
+    }
+
+    public void setIsAdmin(boolean isAdmin) {this.isAdmin = isAdmin;
     }
 
     public void setMainPage(String mainPage) {this.mainPage = mainPage;

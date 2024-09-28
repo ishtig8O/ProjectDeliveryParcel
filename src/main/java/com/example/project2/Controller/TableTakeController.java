@@ -19,7 +19,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class TableTakeController {
@@ -60,26 +59,6 @@ public class TableTakeController {
     @FXML
     private TextField id;
 
-//    @FXML
-//    void add_staff(ActionEvent event) {
-//
-//    }
-//
-//    @FXML
-//    void getUp(MouseEvent event) {
-//
-//    }
-//
-//    @FXML
-//    void switchToRegistrationBack(ActionEvent event) {
-//
-//    }
-
-//    @FXML
-//    void initialize() {
-//
-//
-//    }
 
     private Stage stage;
     private Scene scene;
@@ -91,27 +70,11 @@ public class TableTakeController {
         this.tableTakeModel = new TableTakeModel(this);
     }
 
-//    ObservableList<TableStaffModel> list = FXCollections.observableArrayList(
-//            new TableStaffModel(1, "fff1", "1234435"),
-//            new TableStaffModel(2, "fff2", "1234436"),
-//            new TableStaffModel(3, "fff3", "1234437")
-//
-//
-//    );
-
     ObservableList<TableTakeWho> listM;
     int index = -1;
     Connection connection = null;
     ResultSet rs = null;
 
-
-
-//    public void add_staff() {
-////        String name = center_name.toString();
-////        String address = center_address.toString();
-//        //if (name.isEmpty() || phone.isEmpty() || )
-//        //tableTakeModel.add_staffi(nameText.getText(), TextAddress.getText(),);
-//    }
 
     @FXML
     void getUp(javafx.scene.input.MouseEvent mouseEvent) {
@@ -120,11 +83,7 @@ public class TableTakeController {
             return;
         }
 
-
         id.setText(package_id.getCellData(index).toString());
-//        nameText.setText(center_name.getCellData(index).toString());
-//        TextAddress.setText(center_address.getCellData(index).toString());
-
     }
 
 
@@ -143,14 +102,6 @@ public class TableTakeController {
 
     @FXML
     void initialize() {
-//        courier_id.setCellValueFactory(new PropertyValueFactory<TableStaffWho, Integer>("id_staff"));
-//        courier_name.setCellValueFactory(new PropertyValueFactory<TableStaffWho, String>("name"));
-//        courier_phone_number.setCellValueFactory(new PropertyValueFactory<TableStaffWho, String>("phone"));
-//
-//        listM = tableStaffModel.getDate();
-//
-//
-//        tableStaff.setItems(listM);
         updateTable();
     }
     @FXML
@@ -175,6 +126,4 @@ public class TableTakeController {
     void take() {
         tableTakeModel.edit(id);
     }
-
-
 }

@@ -36,7 +36,7 @@
             </TableView>
             <Button fx:id="add" layoutX="36.0" layoutY="246.0" mnemonicParsing="false" onAction="#add_staff" prefHeight="26.0" prefWidth="89.0" text="Добавить" />
             <Button fx:id="update" layoutX="36.0" layoutY="304.0" mnemonicParsing="false" onAction="#update" prefHeight="26.0" prefWidth="89.0" text="Обновить" />
-            <Button fx:id="delite" layoutX="36.0" layoutY="357.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="89.0" text="Удалить" />
+            <Button fx:id="delete" layoutX="36.0" layoutY="357.0" mnemonicParsing="false" onAction="#delete" prefHeight="26.0" prefWidth="89.0" text="Удалить" />
             <TextField fx:id="phoneText" layoutX="19.0" layoutY="117.0" prefHeight="17.0" prefWidth="123.0" promptText="phone" />
             <TextField fx:id="nameText" layoutX="19.0" layoutY="49.0" prefHeight="17.0" prefWidth="123.0" promptText="name" />
             <TextField fx:id="idText" layoutX="19.0" layoutY="14.0" prefHeight="17.0" prefWidth="123.0" promptText="id" />
